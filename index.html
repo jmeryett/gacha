@@ -1,0 +1,38 @@
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./app.js" defer></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+
+<body>
+  <div id="app">
+    <div @keypress.r="reroll" @keypress.b="battle" style="height: 100%; width: 100%">
+      <h2>
+        Welcome to the Gacha Experience!
+      </h2>
+      <h5>Reroll total: {{totalRerolls}}</h5>
+      <p>
+        Current unit: {{ currentUnit.name }}
+      </p>
+      <p>
+        Max attack: {{ currentUnit.max }}
+      </p>
+      <button @click="reroll">REROLL</button>
+  
+  
+      <div v-if="battleMode" class="battleScreen">
+        <p>The Enemy: {{currentEnemy.name}}</p>
+        <p>Max power: {{currentEnemy.max}}</p>
+        <br>
+        <p>You rolled a {{playerRoll}}!</p>
+        <p>The enemy rolled a {{enemyRoll}}!</p>
+        <p>{{result}}</p>
+      </div>
+  
+      <br>
+      <br>
+      <button v-if="!gameover" @click="battle">BATTLE</button>
+    </div>
+    </div>
+</body>
