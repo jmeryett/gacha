@@ -18,11 +18,11 @@ const checkRoute = function (incomingRoute) {
     if (incomingRoute.indexOf(route) > -1) {
       foundRoute = route;
     }
-  return foundRoute;
   });
+  return foundRoute;
 }
 
-const handleGacha = function () {
+const handleGacha = function (res) {
   fs.readFile('gachaSim.js', function(err, data) {
     res.writeHead(200, {'Content-Type': 'text/javascript'});
     res.write(data);
@@ -30,7 +30,7 @@ const handleGacha = function () {
  });
 }
 
-const handleStyles = function () {
+const handleStyles = function (res) {
   fs.readFile('styles.css', function(err, data) {
     res.writeHead(200, {'Content-Type': 'text/css'});
     res.write(data);
@@ -38,7 +38,7 @@ const handleStyles = function () {
  });
 }
 
-const handlIndex = function () {
+const handleIndex = function (res) {
   fs.readFile('index.html', function(err, data) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data);
@@ -46,8 +46,8 @@ const handlIndex = function () {
  });
 }
 
-const handleUnknown = function () {
-  handlIndex();
+const handleUnknown = function (res) {
+  handleIndex(res);
 }
 
 
@@ -55,15 +55,15 @@ http.createServer(function (req, res) {
   let route = checkRoute(req.url);
   switch (route) {
     case 'gachaSim.js':
-      handleGacha();
+      handleGacha(res);
     break;
     case 'styles.css':
-      handleStyles();
+      handleStyles(res);
     break;
     case 'index.html':
-      handlIndex();
+      handlIndex(res);
     default:
-      handleUnknown();
+      handleUnknown(res);
     break;
   }
 }).listen(port);
