@@ -1,13 +1,13 @@
 
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="./app.js" defer></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 
 <body>
   <div id="app">
-    <div @keypress.r="reroll" @keypress.b="battle" style="height: 100%; width: 100%">
+    <!-- <div @keypress.r="reroll" @keypress.b="battle" style="height: 100%; width: 100%"> -->
+    <div>
       <h2>
         Welcome to the Gacha Experience!
       </h2>
@@ -18,7 +18,7 @@
       <p>
         Max attack: {{ currentUnit.max }}
       </p>
-      <button @click="reroll">REROLL</button>
+      <button style="width: 200px;height:100px;" @click="reroll">REROLL</button>
   
   
       <div v-if="battleMode" class="battleScreen">
@@ -32,7 +32,10 @@
   
       <br>
       <br>
-      <button v-if="!gameover" @click="battle">BATTLE</button>
+      <button style="width: 200px;height:100px;" v-if="!gameover" @click="battle">BATTLE</button>
     </div>
     </div>
+
+  <script src="./gachaSim.js"></script>
+
 </body>
