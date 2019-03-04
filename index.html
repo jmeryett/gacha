@@ -2,6 +2,7 @@
 <head>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <link href="./dist/styles/styles.css" rel="stylesheet"></link>
 </head>
 
 <body>
@@ -11,18 +12,28 @@
       <h2>
         Welcome to the Gacha Experience!
       </h2>
+      <button class="largeButton" @click="reroll">REROLL</button>
       <h5>Reroll total: {{totalRerolls}}</h5>
-      <p>
-        Current unit: {{ currentUnit.name }}
-      </p>
-      <p>
-        Max attack: {{ currentUnit.max }}
-      </p>
-      <button style="width: 200px;height:100px;" @click="reroll">REROLL</button>
+      <div class="heroBox">
+        <p>
+          Current unit: {{ currentUnit.name }}
+          <span class="gemBox" v-for="n in currentUnit.stars">
+            <img src="./dist/assets/gem.png"/>
+          </span>
+        </p>
+        <p>
+          Max attack: {{ currentUnit.max }}
+        </p>
+      </div>
   
   
       <div v-if="battleMode" class="battleScreen">
-        <p>The Enemy: {{currentEnemy.name}}</p>
+        <p>
+          The Enemy: {{currentEnemy.name}}
+          <span class="gemBox" v-for="n in currentEnemy.stars">
+              <img src="./dist/assets/gem.png"/>
+            </span>
+        </p>
         <p>Max power: {{currentEnemy.max}}</p>
         <br>
         <p>You rolled a {{playerRoll}}!</p>
@@ -32,10 +43,10 @@
   
       <br>
       <br>
-      <button style="width: 200px;height:100px;" v-if="!gameover" @click="battle">BATTLE</button>
+      <button class="largeButton" v-if="!gameover" @click="battle">BATTLE</button>
     </div>
     </div>
 
-  <script src="./gachaSim.js"></script>
+  <script src="./dist/scripts/gachaSim.js"></script>
 
 </body>
