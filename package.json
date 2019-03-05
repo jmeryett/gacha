@@ -1,0 +1,25 @@
+{
+  "name": "gacha",
+  "version": "1.0.0",
+  "description": "A very serious simulation of every gacha game ever",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles": "sass ./styles/styles.scss ./dist/styles/styles.css",
+    "watch": "watch 'npm run styles' ./styles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmeryett/gacha.git"
+  },
+  "author": "Jake Meryett",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/jmeryett/gacha/issues"
+  },
+  "homepage": "https://github.com/jmeryett/gacha#readme",
+  "devDependencies": {
+    "sass": "^1.17.2",
+    "watch": "^1.0.2"
+  }
+}
